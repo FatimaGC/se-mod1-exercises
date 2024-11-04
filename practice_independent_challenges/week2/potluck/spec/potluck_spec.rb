@@ -13,27 +13,18 @@ describe Potluck do
             potluck = Potluck.new("7-13-18")
             expect(potluck.dishes).to eq []
         end 
-        
     end
 
     describe '#add_dish' do
-        it 'returns a list of dishes' do
+        it 'adds a dish to the dishes array and confirms it has been added correctly' do
             potluck = Potluck.new("7-13-18")
             couscous_salad = Dish.new("Couscous Salad", :appetizer)
             cocktail_meatballs = Dish.new("Cocktail Meatballs", :entre)
             potluck.add_dish(couscous_salad)
             potluck.add_dish(cocktail_meatballs)
-            expect(potluck.dishes).to eq ["Couscous Salad", "Cocktail Meatballs"]
-        end
-
-        it 'returns the length of the dishes array' do
-            potluck = Potluck.new("7-13-18")
-            couscous_salad = Dish.new("Couscous Salad", :appetizer)
-            cocktail_meatballs = Dish.new("Cocktail Meatballs", :entre)
-            potluck.add_dish(couscous_salad)
-            potluck.add_dish(cocktail_meatballs)
+            expect(potluck.dishes).to eq [couscous_salad, cocktail_meatballs]
             expect(potluck.dishes.length).to eq 2
-        end 
+        end
     end 
 
     describe '#get_all_from_category' do
@@ -49,8 +40,8 @@ describe Potluck do
             potluck.add_dish(roast_pork)
             potluck.add_dish(cocktail_meatballs)
             potluck.add_dish(candy_salad)
-            require 'pry'; binding.pry
-            expect(potluck.get_all_from_category).to eq ["Couscous Salad", "Summer Pizza"]
+            # require 'pry'; binding.pry
+            expect(potluck.get_all_from_category(:appetizer)).to eq [couscous_salad, summer_pizza]
         end 
     end 
 end 
