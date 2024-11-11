@@ -41,6 +41,7 @@ RSpec.describe Dragon do
     dragon = Dragon.new('Mnementh', :bronze, 'Flar')
     expect(dragon.hungry?).to be true
     dragon.eat
+    # require 'pry'; binding.pry
     expect(dragon.hungry?).to be true
     dragon.eat
     expect(dragon.hungry?).to be true
