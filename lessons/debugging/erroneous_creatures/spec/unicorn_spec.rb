@@ -1,15 +1,15 @@
-require '.lib/unicorn'
+require './lib/unicorn'
 
 RSpec.describe Unicorn do
-  xit "has a name" do
+  it "has a name" do
     unicorn = Unicorn.new("Robert")
-
+    require 'pry'; binding.pry
     expect(unicorn.name).to eq("Robert")
   end
 
-  xit "is white by default" do
+  it "is white by default" do
     unicorn = Unicorn.new("Margaret")
-
+    # require 'pry'; binding.pry
     expect(unicorn.color).to eq("white")
     expect(unicorn.white?).to eq(true)
   end

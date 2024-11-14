@@ -1,7 +1,8 @@
 class Unicorn
-    attr_reader :name
+    attr_reader :name,
+                :color
 
-    attr_accessor :color
+    # attr_accessor :color
 
     def initialize(name, color = 'silver')
         @name = name
