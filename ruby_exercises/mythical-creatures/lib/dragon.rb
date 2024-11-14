@@ -1,15 +1,17 @@
 class Dragon
   attr_reader :name,
-              :color
+              :color,
+              :rider,
+              :hungry
 
-  attr_accessor :rider,
-                :hungry
+  # attr_accessor :hungry
 
   def initialize(name, color, rider)
     @name = name
     @color = color 
     @rider = rider
     @hungry = true
+    @count = 0
   end 
 
   def hungry?
@@ -17,15 +19,14 @@ class Dragon
   end
 
   def eat 
-    count = 0
-
-    while count < 4 do
-      #check whether dragon is still hungry? hungry = true
-      if @hungry == true
-        count +=1
-      else
+   
+      if @count < 2
+        @count +=1
+      elsif @count >= 2
+        # require 'pry'; binding.pry
         @hungry = false 
       end 
-    end 
+      # require 'pry'; binding.pry
+
   end 
 end 
