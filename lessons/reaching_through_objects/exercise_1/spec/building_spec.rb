@@ -1,0 +1,26 @@
+require 'rspec'
+require './lib/building'
+require './lib/apartment'
+
+RSpec.describe Building do
+  it 'has a building number and a building name' do
+    bldg = Building.new("623", "Savills Apartment Building")
+
+    expect(bldg.number).to eq ("623")
+    expect(bldg.name).to eq ("Savills Apartment Building")
+  end
+
+  it 'can have up to 4 Apartments and can list those Apartments' do
+    bldg = Building.new("623", "Savills Apartment Building")
+    
+    apt_1 = Apartment.new
+    apt_2 = Apartment.new
+    apt_5 = Apartment.new
+
+    bldg.add_apartment(apt_1)
+    bldg.add_apartment(apt_2)
+    bldg.add_apartment(apt_5)
+    # require 'pry'; binding.pry
+    expect(bldg.list_apartments).to eq ([apt_1, apt_2, apt_5])
+  end
+end
