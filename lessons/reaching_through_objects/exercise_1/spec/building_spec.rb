@@ -20,7 +20,6 @@ RSpec.describe Building do
     bldg.add_apartment(apt_1)
     bldg.add_apartment(apt_2)
     bldg.add_apartment(apt_5)
-    # require 'pry'; binding.pry
     expect(bldg.list_apartments).to eq ([apt_1, apt_2, apt_5])
   end
 end
