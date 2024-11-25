@@ -1,5 +1,6 @@
 require 'rspec'
 require './lib/medusa'
+require './lib/person'
 
 RSpec.describe Medusa do
   it 'has a name' do
@@ -26,16 +27,40 @@ RSpec.describe Medusa do
     medusa = Medusa.new('Cassiopeia')
     victim = Person.new('Perseus')
 
+    
     expect(victim.stoned?).to be false
     medusa.stare(victim)
     expect(victim.stoned?).to be true
   end
 
   it 'can only have three victims' do
-    # your code here
+    medusa = Medusa.new('Cassiopeia')
+    victim_1 = Person.new('Perseus')
+    victim_2 = Person.new('Persephone')
+    victim_3 = Person.new('Penelope')
+
+    medusa.stare(victim_1)
+    medusa.stare(victim_2)
+    medusa.stare(victim_3)
+
+    expect(medusa.three_victims?).to eq true 
   end
 
   it 'if a fourth victim is stoned the first is unstoned' do
-    # your code here
+    medusa = Medusa.new('Cassiopeia')
+    victim_1 = Person.new('Perseus')
+    victim_2 = Person.new('Persephone')
+    victim_3 = Person.new('Penelope')
+    victim_4 = Person.new('Percy')
+
+
+    medusa.stare(victim_1)
+    medusa.stare(victim_2)
+    medusa.stare(victim_3)
+    expect(medusa.three_victims?).to eq true
+    medusa.stare(victim_4)
+    expect(medusa.three_victims?).to eq false
+    medusa.fourth_victim
+    expect(victim_1.stoned?).to eq false
   end
 end
