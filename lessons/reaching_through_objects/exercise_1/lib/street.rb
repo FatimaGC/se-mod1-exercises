@@ -10,4 +10,10 @@ class Street
   def add_building(bldg)
     @buildings.push(bldg)
   end
+
+  def list_buildings_alphabetically
+    @buildings.map do |building|
+      building.name
+    end.sort
+  end
 end

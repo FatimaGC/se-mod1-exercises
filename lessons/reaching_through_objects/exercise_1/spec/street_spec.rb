@@ -25,9 +25,16 @@ RSpec.describe Street do
       adlington.add_building(savills)
       adlington.add_building(zebra)
 
-      expect(adlington.buildings).to eq (["Savills Apartment Building", "Zebra Apartments"])
-
+      expect(adlington.list_buildings_alphabetically).to eq (["Savills Apartment Building", "Zebra Apartments"])
     end
-
   end
+
+  # describe `#list_available_apartments` do
+    # -The Building object already has access to the Apartment list
+    # -Street > buildings (array) > apartment_list(array) > is_rented
+    # Iterate through each building, 
+    # Start with each to get iteration working then refactor 
+    # Use pry to see what info you get, then add logic after
+  # end
+
 end
