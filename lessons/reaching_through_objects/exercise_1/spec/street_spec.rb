@@ -1,6 +1,8 @@
 require 'rspec'
 require './lib/street'
 require './lib/building'
+require './lib/apartment'
+
 
 RSpec.describe Street do
   it 'has a name' do
@@ -29,12 +31,26 @@ RSpec.describe Street do
     end
   end
 
-  # describe `#list_available_apartments` do
-    # -The Building object already has access to the Apartment list
-    # -Street > buildings (array) > apartment_list(array) > is_rented
-    # Iterate through each building, 
-    # Start with each to get iteration working then refactor 
-    # Use pry to see what info you get, then add logic after
-  # end
+  describe `#number_of_available_apartments` do
+    it 'states the number of Apartments that are not currently rented' do
+      adlington = Street.new("Adlington Road")
+      savills = Building.new("623", "Savills Apartment Building")
+      apt_1 = Apartment.new
+      apt_2 = Apartment.new
+      apt_3 = Apartment.new
+
+
+
+      adlington.add_building(savills)
+      savills.add_apartment(apt_1)
+      savills.add_apartment(apt_2)
+      savills.add_apartment(apt_3)
+
+      expect(adlington.number_of_available_apartments).to eq 3
+    end
+  end
+  
+  
+  
 
 end

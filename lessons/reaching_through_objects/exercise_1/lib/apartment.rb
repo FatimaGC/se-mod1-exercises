@@ -2,8 +2,8 @@ class Apartment
   attr_reader :rented,
               :rooms
 
-  def initialize()
-    @rented = false 
+  def initialize(rented = false)
+    @rented = rented
     @rooms = []
   end
 
