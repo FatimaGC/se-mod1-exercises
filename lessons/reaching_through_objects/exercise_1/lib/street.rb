@@ -38,7 +38,7 @@ class Street
   
   #REFACTORED CODE
   
-  available_apartments = @buildings.flat_map do |building|
+  available_apartments = @buildings.flat_Metmap do |building|
     building.apartment_list.select do |apartment|
         apartment.rented == false
       end
