@@ -88,6 +88,7 @@ RSpec.describe Werewolf do
     werewolf.consume(victim)
 
     expect(victim.status).to eq (:alive)
+    expect(werewolf.victims).to eq ([])
   end
 
   it 'a werewolf that has consumed a human being is no longer hungry' do
