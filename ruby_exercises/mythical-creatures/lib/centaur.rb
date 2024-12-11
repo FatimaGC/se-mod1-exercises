@@ -1,39 +1,68 @@
 class Centaur
   attr_reader :name,
               :breed,
-              :shoot,
-              :run,
               :cranky,
-              :standing
-      
+              :standing,
+              :activity,
+              :laying
 
-  def initialize(name, breed = 'Palomino')
+  def initialize(name, breed)
     @name = name
     @breed = breed
-    @shoot = 'Twang!!!'
-    @run = 'Clop clop clop clop!'
     @cranky = false
     @standing = true
+    @activity = 0
+    @laying = false
   end
 
   def shoot
-    @shoot
+    @activity += 1
+
+    if @laying == true || @activity >= 3
+      'NO!'
+    else 
+      'Twang!!!'
+    end
   end
 
   def run
-    @run
+    @activity += 1
+
+    if @laying == true || @activity >= 3
+      'NO!'
+    else 
+      'Clop clop clop clop!'
+    end
   end
 
-  def cranky?
-    @cranky
-    
-    #For test 35: 
+  #For test 35: 
     # if shoot OR run is called 3x total, change @cranky to true.
     # use a counter to track how many times shoot and run is called?
-    # use a helper method?
+
+  def cranky?
+    if activity == 3
+      @cranky = true
+    else 
+      @cranky
+    end
   end
   
   def standing?
     @standing
+  end
+
+  def sleep
+    if @standing == true
+      'NO!'
+    end
+  end
+
+  def lay_down
+    @standing = false
+    @laying = true
+  end
+
+  def laying?
+    @laying 
   end
 end
