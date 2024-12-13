@@ -35,7 +35,7 @@ RSpec.describe Deck do
     deck.add_card(card_4)
     deck.add_card(card_5)
 
-    expect(deck.random_card).to include ([card_1, card_2, card_3, card_4, card_5])
+    expect([card_1, card_2, card_3, card_4, card_5]).to include(deck.random_card)
     end
   end
 end
