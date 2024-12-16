@@ -41,6 +41,5 @@ class Team
     #REFACTORED CODE#
     
     @players.select {|player| player.position == position}
-    
   end
 end
