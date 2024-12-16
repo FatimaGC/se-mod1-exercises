@@ -15,30 +15,31 @@ RSpec.describe Team do
       expect(team.country).to eq ("France")
     end 
 
+    it 'has no players by default' do
+      team = Team.new("France")   
+      
+      expect(team.players).to eq ([])
+    end
+  end 
+
+  describe '#eliminated' do
     it 'is not eliminated by default' do
       team = Team.new("France")   
       
       expect(team.eliminated?).to eq false
     end
-  end 
 
-  describe '#eliminated' do
     it 'changes the eliminated attribute to true' do
       team = Team.new("France")   
       
-      team.eliminated
+      team.eliminated = true
 
       expect(team.eliminated?).to eq true
     end
   end
   
-  
 
-  it 'has no players by default' do
-    team = Team.new("France")   
-    
-    expect(team.players).to eq ([])
-  end
+  
 
   describe '#add_player' do
     it "adds a player to the player's array" do
@@ -65,6 +66,7 @@ RSpec.describe Team do
       team.add_player(pogba)  
 
       expect(team.players_by_position("midfielder")).to eq ([pogba])
+      expect(team.players_by_position("defender")).to eq ([])
     end
   end
 end

@@ -1,7 +1,8 @@
 class Team 
   attr_reader :country,
-              :eliminated,
               :players
+
+  attr_accessor :eliminated
 
   def initialize(country)
     @country = country
@@ -11,10 +12,6 @@ class Team
 
   def eliminated?
     @eliminated
-  end
-
-  def eliminated 
-    @eliminated = true
   end
 
   def add_player(player)
