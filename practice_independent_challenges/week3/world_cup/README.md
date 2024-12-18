@@ -174,7 +174,7 @@ pry(main)> croatia.add_player(modric)
 pry(main)> croatia.add_player(vida)    
 
 pry(main)> world_cup = WorldCup.new(2018, [france, croatia])    
-# => #<WorldCup:0x00007f936a010d10...>
+# => #<WorldCup:0x00007f936a010d10...> 
 
 world_cup.all_players_by_position
 # =>

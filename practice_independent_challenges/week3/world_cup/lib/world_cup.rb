@@ -24,4 +24,36 @@ class WorldCup
 				@teams.select {|team| team.eliminated != true}
 							.flat_map {|team| team.players_by_position(position)}
     end
+
+    def all_players_by_position
+        #Create a new hash with the keys "forward", "midfielder", and "defender"
+        #Output looks like this:
+            #{
+            # "forward" => [#<Player:0x00007f936a9168b0...>],
+            # "midfielder" => [#<Player:0x00007f936c035eb0...>, #<Player:0x00007f936a3595f8...>],
+            # "defender" => [#<Player:0x00007f936a318f08...>]
+            # }
+
+        players_hash = {
+            "forward" => [],
+            "midfielder" => [],
+            "defender" => [],
+        }
+
+        #Start with each
+        #Teams (array of two teams) > each Team.players (array of players) > each Player has player.position
+        @teams.each do |team|
+            team.players.each do |player|
+                if player.position == "forward"
+                    players_hash["forward"].push(player)
+                elsif player.position == "midfielder"
+                    players_hash["midfielder"].push(player)
+                else
+                    players_hash["defender"].push(player)
+                end
+            end
+        end
+        players_hash
+
+    end
 end 
