@@ -34,26 +34,17 @@ class WorldCup
             # "defender" => [#<Player:0x00007f936a318f08...>]
             # }
 
-        players_hash = {
-            "forward" => [],
-            "midfielder" => [],
-            "defender" => [],
-        }
-
+        players_hash = {}
+        
         #Start with each
         #Teams (array of two teams) > each Team.players (array of players) > each Player has player.position
         @teams.each do |team|
             team.players.each do |player|
-                if player.position == "forward"
-                    players_hash["forward"].push(player)
-                elsif player.position == "midfielder"
-                    players_hash["midfielder"].push(player)
-                else
-                    players_hash["defender"].push(player)
-                end
+                players_hash[player.position] ||= []
+
+                players_hash[player.position] << player 
             end
         end
         players_hash
-
     end
 end 
