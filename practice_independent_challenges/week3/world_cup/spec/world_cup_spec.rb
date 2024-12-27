@@ -107,9 +107,11 @@ RSpec.describe WorldCup do
 
 			world_cup = WorldCup.new(2018, [france, croatia])
 
-			expect(world_cup.all_players_by_position).to eq ({"forward" => [mbappe],
-			  "midfielder" => [pogba, modric],
-			  "defender" => [vida]})
+			world_cup_hash = {"forward" => [mbappe],
+			"midfielder" => [pogba, modric],
+			"defender" => [vida]}
+
+			expect(world_cup.all_players_by_position).to eq (world_cup_hash)
 		end
 	end
 end 
