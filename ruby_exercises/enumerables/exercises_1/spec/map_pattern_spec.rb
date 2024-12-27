@@ -9,31 +9,44 @@ RSpec.describe 'map pattern' do
     expect(capitalized_names).to eq(["Alice", "Bob", "Charlie"])
   end
 
-  xit 'doubles' do
+  it 'doubles' do
     numbers = [1, 2, 3, 4, 5]
     doubles = []
     numbers.each do |number|
-      # Your code goes here
+      doubles << number * 2
     end
     expect(doubles).to eq([2, 4, 6, 8, 10])
   end
 
-  xit 'squares' do
+  it 'squares' do
     numbers = [1, 2, 3, 4, 5]
     squares = []
-    # Your code goes here
+    numbers.each do |number|
+      squares << number ** 2
+    end
     expect(squares).to eq([1, 4, 9, 16, 25])
   end
 
-  xit 'lengths' do
+  it 'lengths' do
     names = ["alice", "bob", "charlie", "david", "eve"]
-    # Your code goes here
+    lengths = []
+    names.each do |name|
+      lengths << name.length
+    end
     expect(lengths).to eq([5, 3, 7, 5, 3])
   end
 
-  xit 'normalize zip codes' do
+  it 'normalize zip codes' do
     numbers = [234, 10, 9119, 38881]
-    # Your code goes here
+    zip_code = []
+    numbers.each do |number|
+      zip_code << number.to_s
+        zip_code.each do |number|
+          if number.length < 5
+            number.prepend("0")
+          end
+        end
+    end
     expect(zip_code).to eq(["00234", "00010", "09119", "38881"])
   end
 
