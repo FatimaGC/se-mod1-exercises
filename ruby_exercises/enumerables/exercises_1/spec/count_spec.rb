@@ -8,23 +8,27 @@ RSpec.describe 'count test' do
     expect(tally).to eq(3)
   end
 
-  xit 'numbers greater than 17' do
+  it 'numbers greater than 17' do
     numbers = [9, 18, 12, 17, 1, 3, 99]
     tally = numbers.count do |number|
-      # Your code goes here
+      number > 17
     end
     expect(tally).to eq(2)
   end
 
-  xit 'words that are uppercase' do
+  it 'words that are uppercase' do
     words = ["trousers", "SOCKS", "sweater", "Cap", "SHOE", "TIE"]
-    # Your code goes here
+    tally = words.count do |word|
+      word == word.upcase
+    end
     expect(tally).to eq(3)
   end
 
-  xit 'words ending in ing' do
+  it 'words ending in ing' do
     words = ["thought", "brake", "shin", "juice", "trash"]
-    # Your code goes here
+    tally = words.count do |word|
+      word.length - 3 == "ing"
+    end
     expect(tally).to eq(0)
   end
 
