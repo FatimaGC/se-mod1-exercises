@@ -9,11 +9,11 @@ RSpec.describe 'select pattern' do
     expect(evens).to eq([2, 4, 6, 8, 10])
   end
 
-  xit 'picks odd numbers' do
+  it 'picks odd numbers' do
     numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     odds = []
     numbers.each do |number|
-      # Your code goes here
+      odds << number if number.odd?
     end
     expect(odds).to eq([1, 3, 5, 7, 9])
   end
