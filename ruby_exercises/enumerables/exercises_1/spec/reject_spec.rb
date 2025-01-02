@@ -8,17 +8,19 @@ RSpec.describe 'reject' do
     expect(filtered).to eq([2, 93, 7, 1, 31, 368])
   end
 
-  xit 'removes vowels' do
+  it 'removes vowels' do
     letters = ["a", "l", "l", " ", "y", "o", "u", "r", " ", "b", "a", "s", "e", " ", "a", "r", "e", " ", "b", "e", "l", "o", "n", "g", " ", "t", "o", " ", "u", "s"]
     remaining = letters.reject do |letter|
-      # Your code goes here
+      letter =~ /[aeiouy]/
     end
     expect(remaining).to eq(["l", "l", " ", "r", " ", "b", "s", " ", "r", " ", "b", "l", "n", "g", " ", "t", " ", "s"])
   end
 
-  xit 'remove numbers divisible by 3' do
+  it 'remove numbers divisible by 3' do
     numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-    # Your code goes here
+    remaining = numbers.reject do |number|
+      number % 3 == 0
+    end
     expect(remaining).to eq([1, 2, 4, 5, 7, 8, 10, 11, 13, 14, 16, 17, 19, 20])
   end
 

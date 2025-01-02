@@ -8,11 +8,11 @@ RSpec.describe 'reduce pattern' do
     expect(sum).to eq(473)
   end
 
-  xit 'subtracts a list of numbers' do
+  it 'subtracts a list of numbers' do
     numbers = [28, 12, 38, 1, 91]
     difference = 0
     numbers.each do |number|
-      # Your code goes here
+      difference = difference - number
     end
     expect(difference).to eq(-170)
   end
