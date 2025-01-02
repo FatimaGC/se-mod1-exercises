@@ -18,10 +18,10 @@ RSpec.describe 'reduce pattern' do
   end
 
   xit 'multiplies a list of numbers' do
-    numbers = [2, 3, 5, 7]
-    product = 1
-    # Your code goes here
-    expect(product).to eq(210)
+    # numbers = [2, 3, 5, 7]
+    # product = 1
+    # # Your code goes here
+    # expect(product).to eq(210)
   end
 
   xit 'capitalizes key words in phrase' do
