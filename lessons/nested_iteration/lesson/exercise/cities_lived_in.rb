@@ -14,11 +14,11 @@ cities_lived_in = {
 #Get the array for each key
 #Return all cities in a single array
 
-# all_cities = cities_lived_in.flat_map do |key, value|
-#     value
-# end
+all_cities = cities_lived_in.flat_map do |key, value|
+    value
+end
 
-# p all_cities
+p all_cities
 
 # Problem #2: 
 # Write code that iterates through the `cities_lived_in` hash, and returns a list of  
@@ -28,9 +28,9 @@ cities_lived_in = {
 # or
 # ["Michaela", "Mike", "Alex"]
 
-# philadelphia_inhabitants = cities_lived_in.select {|key, value| value.include?("Philadelphia")}.keys
+philadelphia_inhabitants = cities_lived_in.select {|key, value| value.include?("Philadelphia")}.keys
 
-# p philadelphia_inhabitants
+p philadelphia_inhabitants
 
 # Problem #3: 
 # Create a hash that has the city as a key, and the number of people that live in it as it's value: 
