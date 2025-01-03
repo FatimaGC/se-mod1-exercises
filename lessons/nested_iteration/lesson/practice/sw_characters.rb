@@ -216,6 +216,19 @@ characters = [
 
 # ["Tatooine", "Naboo", "Alderaan" ... ]
 
+#Data structure: Array > Hash > homeworld key
+
+#Iterate through the characters array
+
+# homeworld_list = characters.map do |character|
+#     character[:homeworld]
+# end
+
+#REFACTORED
+
+homeworld_list = characters.map { |character| character[:homeworld] }.uniq
+
+p homeworld_list
 
 # Challenge #2
 
@@ -223,7 +236,14 @@ characters = [
 
 # ["Luke Skywalker", "Darth Vader", "Biggs Darklighter" ... ]
 
+# characters_w_ships_names = characters.select {|character| character[:starships].any?}
+#                                      .map {|character| character[:name]}
 
+#REFACTORED 
+
+characters_w_ships_names = characters.filter_map {|character| character[:name] if character[:starships].any?}
+
+p characters_w_ships_names
 
 # CHALLENGE #3
 
