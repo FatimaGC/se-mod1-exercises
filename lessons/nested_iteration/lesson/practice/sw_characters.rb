@@ -228,7 +228,7 @@ characters = [
 
 homeworld_list = characters.map { |character| character[:homeworld] }.uniq
 
-p homeworld_list
+# p homeworld_list
 
 # Challenge #2
 
@@ -243,7 +243,7 @@ p homeworld_list
 
 characters_w_ships_names = characters.filter_map {|character| character[:name] if character[:starships].any?}
 
-p characters_w_ships_names
+# p characters_w_ships_names
 
 # CHALLENGE #3
 
@@ -259,6 +259,17 @@ p characters_w_ships_names
 #     ...
 # }
 
+#start with an empty hash
+
+
+character_starships = {}
+
+characters.each do |character|
+    character_starships[character[:name]] = character[:starships]
+end
+
+# p character_starships
+
 
 # Challenge #4 
 
@@ -271,3 +282,40 @@ p characters_w_ships_names
 #      ...
 #      ...
 # }
+
+#Start with an empty hash
+movie_characters = {}
+
+#Iterate through the characters hash
+    #Get a unique list of movies titles 
+movie_titles = characters.flat_map {|character| character[:films]}.uniq
+
+    #Iterate through the movie titles and assign each movie title to the movie_characters hash as a key
+movie_titles.each {|title| movie_characters[title] = []}
+
+# p movie_characters
+
+#Iterate through the movie_characters hash 
+    #IF the key == a character's films,
+        #Iterate through the Characters array,
+            #For each character, go to their films array,
+                #Iterate through each film
+                    #If that film == the movie_characters hash KEY, add that character's NAME to the key's value
+
+#Do I make a new hash with the character's names and their movies?
+
+movie_characters.each do |key, value|
+		characters.each do |character|
+			character[:films].each do |film|
+				if film == key
+					value << character[:name]
+				end
+			end 
+		end
+end
+
+#REFACTOR
+#Create the keys at the same time as the values 
+
+
+p movie_characters
