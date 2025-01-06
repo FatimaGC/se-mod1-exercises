@@ -284,14 +284,14 @@ end
 # }
 
 #Start with an empty hash
-movie_characters = {}
+# movie_characters = {}
 
 #Iterate through the characters hash
     #Get a unique list of movies titles 
-movie_titles = characters.flat_map {|character| character[:films]}.uniq
+# movie_titles = characters.flat_map {|character| character[:films]}.uniq
 
     #Iterate through the movie titles and assign each movie title to the movie_characters hash as a key
-movie_titles.each {|title| movie_characters[title] = []}
+# movie_titles.each {|title| movie_characters[title] = []}
 
 # p movie_characters
 
@@ -304,18 +304,26 @@ movie_titles.each {|title| movie_characters[title] = []}
 
 #Do I make a new hash with the character's names and their movies?
 
-movie_characters.each do |key, value|
-		characters.each do |character|
-			character[:films].each do |film|
-				if film == key
-					value << character[:name]
-				end
-			end 
-		end
-end
+# movie_characters.each do |key, value|
+# 		characters.each do |character|
+# 			character[:films].each do |film|
+# 				if film == key
+# 					value << character[:name]
+# 				end
+# 			end 
+# 		end
+# end
+
 
 #REFACTOR
 #Create the keys at the same time as the values 
 
+movie_characters = Hash.new {|hash, key| hash[key] = []} #Creating a new hash that automatically sets the default value of each key to an empty array. 
+
+characters.each do |character| #Iterates through the characters array, selects each character
+	character[:films].each do |film| #Iterates through the characters array of films and for each film,
+		movie_characters[film].push(character[:name]) #Setting the key in the movie_characters hash as the film and pushing in the character's name into the value. (Includes the check: IF the key already exists, push in the value) *Hashes always will have only unique keys
+	end
+end
 
 p movie_characters
