@@ -1,12 +1,8 @@
 # ./camry.rb
-class Camry
-  def start
-    "Engine on!"
-  end
+require ./engine.rb
 
-  def stop
-    "Engine off!"
-  end
+class Camry
+  include Engine 
 
   def drive
     "Back wheels go!"
