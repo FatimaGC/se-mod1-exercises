@@ -31,5 +31,18 @@ RSpec.describe Manager do
   describe "Ability to have name and ID, like any other Employee" do
     # Write tests to prove that a Manager instance can have a Name and ID number, like any other Employee.
     # Also, a Manager should be able to receive a total compensation. Write at least one test that proves they can access this method.
+
+    it 'has a name and ID' do
+      manager = Manager.new(12, "Briana", 6789)
+
+      expect(manager.name).to eq ("Briana")
+      expect(manager.id).to eq (6789)
+    end
+
+    it 'receives a total_compensation' do
+      manager = Manager.new(12, "Briana", 6789)
+
+      expect(manager.total_compensation).to eq(12)
+    end
   end
 end
