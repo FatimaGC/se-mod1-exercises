@@ -8,5 +8,4 @@ class Ceo < Employee
     @bonus       = bonus
     super(name, id)
   end
-
 end
