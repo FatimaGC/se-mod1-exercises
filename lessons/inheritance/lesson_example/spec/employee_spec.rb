@@ -4,6 +4,8 @@ RSpec.describe Employee do
 
   it "exists" do
     employee = Employee.new("Chris", 12345)
+
+    expect(employee).to be_instance_of(Employee)
   end
 
   it "has name and id" do
