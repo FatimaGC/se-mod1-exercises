@@ -1,16 +1,17 @@
+require './lib/employee'
 require './lib/ceo'
 
 RSpec.describe Ceo do
 
   describe "setup" do
     it "exists" do
-      ceo = Ceo.new(15,20)
+      ceo = Ceo.new(15,20,"Fatima", 12345)
 
       expect(ceo).to be_instance_of(Ceo)
     end
 
     it "has base_salary and bonus attributes" do
-      ceo = Ceo.new(15,20)
+      ceo = Ceo.new(15,20,"Fatima", 12345)
       expect(ceo.base_salary).to eq(15)
       expect(ceo.bonus).to eq(20)
     end
